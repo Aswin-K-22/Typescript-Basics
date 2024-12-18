@@ -63,7 +63,13 @@ class User {
         if (this.borrowedBooks.length === 0) {
             return `${this.name} has no borrowed books.`;
         }
-        return `${this.name}'s Borrowed Books:\n${this.borrowedBooks.map(book => `- ${book.title}`).join('\n')}`;
+        let borrowedBooksList = `${this.name}'s Borrowed Books:\n`;
+
+        for (let i = 0; i < this.borrowedBooks.length; i++) {
+            borrowedBooksList += `- ${this.borrowedBooks[i].title}\n`;
+        }
+    
+        return borrowedBooksList;
     }
 }
 

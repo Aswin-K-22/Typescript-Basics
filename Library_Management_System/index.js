@@ -85,7 +85,11 @@ var User = /** @class */ (function () {
         if (this.borrowedBooks.length === 0) {
             return "".concat(this.name, " has no borrowed books.");
         }
-        return "".concat(this.name, "'s Borrowed Books:\n").concat(this.borrowedBooks.map(function (book) { return "- ".concat(book.title); }).join('\n'));
+        var borrowedBooksList = "".concat(this.name, "'s Borrowed Books:\n");
+        for (var i = 0; i < this.borrowedBooks.length; i++) {
+            borrowedBooksList += "- ".concat(this.borrowedBooks[i].title, "\n");
+        }
+        return borrowedBooksList;
     };
     return User;
 }());
